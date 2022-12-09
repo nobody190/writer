@@ -1,2 +1,2 @@
 production:
-  secret_key_base: 1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+  secret_key_base: <%= ENV["SECRET"] %>
