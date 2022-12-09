@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+    <div class="container mb-3", style="position: fixed; bottom: 0; width: 100;">
+        <%= form_with model: @new_content, local: false do |form| %>
+            <fieldset>
+                <div class="form-group">
+                    <%= form.text_field :text, class: "form.control", placeholder: "Insert your message here...", size: "50%"%>
+                    <%= form.submit "Submit", class: "btn btn-primary" %>
+                </div>
+            </fieldset>
+        <% end %>
+    </div>
+
+<% else %>
+    <div style="position: fixed; bottom: 0; width: 100; margin-bottom: 20px; margin-left: 20px;">
+        You need to sign in to publish a message. To sign in, click <%= link_to "here", new_user_session_path%>
+    </div>
+<% end %>
+
+<div style="position: fixed; left: 50%; bottom: 50%; transform: translate(-50%, 0);">
+    <% if @content %>
+        <p><%= @content.text %></p>
+    <% else %>
+        <p>There is no message yet</p>
+    <% end %>
+</div>
